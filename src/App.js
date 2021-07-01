@@ -1,14 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { Counter } from "./features/counter/Counter";
+import RenderInput from "./RenderInput";
+import FrameworkList from "./FrameworkList";
+import MockService from "./MockService";
+import { ReactReduxContext } from "react-redux";
+import Redux from "./Redux";
+import ReduxAsync from "./ReduxAsync";
+import CustomHooks from "./CustomHooks";
 
 function App() {
+  const output = (text) => {
+    console.log(text);
+  };
+  const data = [
+    {
+      id: 1,
+      item: "React",
+    },
+    {
+      id: 2,
+      item: "Angulr",
+    },
+    {
+      id: 3,
+      item: "Vue",
+    },
+  ];
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
+        <RenderInput outputConsole={output} />
+        <FrameworkList frameworks={data} />
+        <MockService />
+        <Redux />
+        <ReduxAsync />
+        <CustomHooks />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
